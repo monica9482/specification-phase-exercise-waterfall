@@ -10,8 +10,9 @@ Krishiv Seth  https://github.com/machinelearner49
 Veer Singh  https://github.com/sing1179  
 
 ## Review of the Current Application
-
-See instructions. Delete this line and replace with your team's findings from using the live app at https://theslidemachine.com — at least 10 specific observations, each labeled as a strength, a weakness, or a gap, and drawn from more than one team member's use of the app.
+Strengths:  
+Weaknesses:  
+Gaps:  
 
 ## Prior Art & Originality
 
