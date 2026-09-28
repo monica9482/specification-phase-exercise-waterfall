@@ -15,9 +15,11 @@ Strengths:
 - Navigation cue words to go forward and back a slide  
 - Verbally add a picture to a given slide  
 - Filler words or stutters ignored for non-strong speakers  
+
 Weaknesses:  
 - Image resource pool  
 - Design template importing is not the best  
+
 Gaps:  
 - Real-time verbal correction  
 
