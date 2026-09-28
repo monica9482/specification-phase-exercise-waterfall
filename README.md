@@ -3,11 +3,11 @@
 A little exercise to get started with the specification phase of the software development lifecycle. In this exercise, your team specifies a set of improvements and new features for [The Slide Machine](https://theslidemachine.com) — see the [instructions](instructions.md) for detail, and the [background](background.md) for an introduction to the software product you are tasked with extending.
 
 ## Team members
-Monica Lee  https://github.com/monica9482
-Yusef Moustafa  https://github.com/YusefMoustafa
-Leslie Sampaney  https://github.com/Leslie-Sampaney
-Krishiv Seth  https://github.com/machinelearner49
-Veer Singh  https://github.com/sing1179
+Monica Lee  https://github.com/monica9482  
+Yusef Moustafa  https://github.com/YusefMoustafa  
+Leslie Sampaney  https://github.com/Leslie-Sampaney  
+Krishiv Seth  https://github.com/machinelearner49  
+Veer Singh  https://github.com/sing1179  
 
 ## Review of the Current Application
 
