@@ -11,8 +11,15 @@ Veer Singh  https://github.com/sing1179
 
 ## Review of the Current Application
 Strengths:  
+- Mostly accurate transcriptions of speech onto slides  
+- Navigation cue words to go forward and back a slide  
+- Verbally add a picture to a given slide  
+- Filler words or stutters ignored for non-strong speakers  
 Weaknesses:  
+- Image resource pool  
+- Design template importing is not the best  
 Gaps:  
+- Real-time verbal correction  
 
 ## Prior Art & Originality
 
