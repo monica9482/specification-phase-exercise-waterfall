@@ -20,6 +20,7 @@ Strengths:
 Weaknesses:  
 - Image resource pool  
 - Design template importing is not the best  
+- New slide predictor doesn't allow for gaps/pauses for non-strong speakers    
 
 Gaps:  
 - Real-time verbal correction  
