@@ -25,6 +25,8 @@ Weaknesses:
 Gaps:  
 - Real-time verbal correction  
 - Editing/approving material during the lecture  
+- Unable to verbally insert diagrams/charts/graphs  
+- Unable to verbally link words    
 
 ## Prior Art & Originality
 
