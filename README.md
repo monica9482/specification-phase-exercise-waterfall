@@ -15,6 +15,7 @@ Strengths:
 - Navigation cue words to go forward and back a slide  
 - Verbally add a picture to a given slide  
 - Filler words or stutters ignored for non-strong speakers  
+- AI accurately predicts and completes sentences most of the time  
 
 Weaknesses:  
 - Image resource pool  
@@ -22,6 +23,7 @@ Weaknesses:
 
 Gaps:  
 - Real-time verbal correction  
+- Editing/approving material during the lecture  
 
 ## Prior Art & Originality
 
