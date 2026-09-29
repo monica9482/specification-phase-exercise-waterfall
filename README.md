@@ -15,19 +15,29 @@ Strengths:
 - Navigation cue words to go forward and back a slide  
 - Verbally add a picture to a given slide  
 - Filler words or stutters ignored for non-strong speakers  
-- AI accurately predicts and completes sentences most of the time  
+- AI accurately predicts and completes sentences most of the time
+- Acronyms like SDLC and CI/CD came out spelled correctly, and a long stretch about waterfall versus agile became a clean two column comparison slide
+- Before a quiz is published, a review screen lets the instructor edit every question and set points for each one
+- Quiz settings let the instructor choose the number of questions, the question types, and add extra instructions for the AI
 
 Weaknesses:  
 - Image resource pool/must be seeded pre-lecture  
 - Design template importing is not the best  
-- New slide predictor doesn't allow for gaps/pauses for non-strong speakers    
+- New slide predictor doesn't allow for gaps/pauses for non-strong speakers
+- Saying "next slide" mid lecture added a blank slide (slide 10) with no title or text that stayed in the finished deck
+- Maintenance was said out loud but appears on none of the 12 slides, and the summary slide says six phases while the phase list slides only show five
+- AI freedom defaults to 2 out of 5, so slides can include content the instructor did not say, and quizzes are written from the slide text by default with the spoken transcript as an unchecked box
+- Opening a quiz link with a personal Gmail account showed "You need access" with no explanation    
 
 Gaps:  
 - Real-time verbal correction  
 - Editing/approving material during the lecture  
 - Unable to verbally insert diagrams/charts/graphs  
 - Unable to verbally link words   
-- Unable to add videos 
+- Unable to add videos
+- Signed out, the lecture page shows only the slides, a play button, and language and share icons, with no place to ask about a slide, no definitions of terms, and no mention that a quiz exists
+- Quiz settings never say which accounts can open the quiz, and nothing warns the instructor before publishing
+- After publishing, the Quiz tab shows only a Google Forms link, a copy button, and Delete quiz, with no open or close time and no way for students to reach it
 
 ## Prior Art & Originality
 
