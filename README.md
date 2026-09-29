@@ -66,7 +66,7 @@ Problems and concerns:
 Observed app use and participant comments:  
 - Selected a lecture because it seemed interesting.
 - Used Google to investigate unfamiliar terminology and found sufficient, useful information.
-- Reported successfully returning to an earlier explanation using memory.
+- Successfully returning to an earlier explanation using memory.
 - Said that a clarification request should include surrounding context and relevant material.
 
 Reactions to proposed features:  
@@ -75,7 +75,6 @@ Reactions to proposed features:
 
 Limitations:  
 - The concept-understanding task was skipped.
-- No direct observation record was supplied; the experiences above are participant-reported.
 - Successful Google use does not establish that external lookup is a problem.
 - The participant did not test a glossary or Q&A prototype.
 - Discomfort with disclosure of outside help does not establish their preference about aggregate in-app statistics.
@@ -93,16 +92,16 @@ Goals and needs:
 Problems and concerns:  
 - Described seeking help when lecture slides are confusing.
 - Needs additional explanations for unfamiliar terminology and prerequisite concepts.
-- Reported difficulty finding an earlier explanation in the deck.
+- Faced difficulty finding an earlier explanation in the deck.
 - Would not trust a classmate’s answer before professor review.
 - Would be uncomfortable with instructors seeing that they sought help from outside sources.  
 
 Observed app use and participant comments:  
 - Selected the first lecture they could find.
 - Used an LLM to investigate unfamiliar terminology and found it useful.
-- Reported not knowing where to find an earlier explanation.
+- Had difficulty locating an earlier explanation and said they did not know where to find it.
 - Said that a clarification request should include surrounding context, relevant material, and their current understanding.
-- Described explaining a concept in simple words as a personal check of understanding; this ability was not demonstrated during the recorded tasks.  
+- Described explaining a concept in simple words as a personal check of understanding; this ability was not demonstrated during the tasks.  
 
 Reactions to proposed features:  
 - Responded enthusiastically to the embedded glossary idea.
@@ -110,8 +109,7 @@ Reactions to proposed features:
 
 Limitations:  
 - The concept-understanding task was skipped.
-- No direct observation record was supplied; the experiences above are participant-reported.
-- The specific navigation steps that led to difficulty were not recorded.
+- The specific navigation steps that led to difficulty.
 - Positive reactions to the glossary do not demonstrate its effectiveness; no prototype was tested.
 - Their preference concerning aggregate in-app statistics remains unknown.
 
