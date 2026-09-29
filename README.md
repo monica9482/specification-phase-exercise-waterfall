@@ -119,7 +119,19 @@ See instructions. Delete this line and place your Product Vision Statement here 
 
 ## User Requirements
 
-See instructions. Delete this line and place a list of your User Stories here, grouped by type of user. These should describe functionality that is new or changed, not functionality the app already has.
+Instructors
+
+1. As an instructor, I want the app to suggest definitions for the hard terms and acronyms in my lecture so that I don't have to write every definition myself.
+2. As an instructor, I want to approve, edit, hold, or discard each suggested definition so that students only see wording I trust.
+3. As an instructor, I want each suggested definition to show the slide or transcript text it came from so that I can check that it is accurate.
+4. As an instructor, I want to change or remove a definition after students can see it so that I can fix a mistake quickly.
+5. As an instructor, I want to see all new student questions in one list grouped by slide so that I can review them in one sitting.
+6. As an instructor, I want a student question to stay hidden from other students until I approve an answer so that a wrong answer never reaches the class.
+7. As an instructor, I want the app to draft an answer to a student question and show the slide text it used so that I can check it and edit it before I approve it.
+8. As an instructor, I want approved questions and answers from earlier semesters to carry over to my next class with no student names so that I don't answer the same question every term.
+9. As an instructor, I want to see how many questions each slide received so that I can find where students were confused before the exam.
+10. As an instructor, I want a clear message when the app cannot draft an answer, for example when the AI is unavailable or my usage limit is reached, so that I know to write it myself and don't wonder what went wrong.
+
 
 ## Activity Diagrams
 
