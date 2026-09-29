@@ -202,7 +202,7 @@ Limitations:
 
 ## Product Vision Statement
 
-See instructions. Delete this line and place your Product Vision Statement here — one sentence describing the improvements and new features your team is proposing for The Slide Machine.
+We are adding an instructor approved glossary and slide questions to The Slide Machine so that students can get trusted help on the exact slide that confused them, with the AI drafting definitions and answers and the instructor approving, editing, holding, or discarding each one before students see it.
 
 ## User Requirements
 
