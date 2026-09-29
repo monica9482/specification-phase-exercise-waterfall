@@ -113,6 +113,93 @@ Limitations:
 - Positive reactions to the glossary do not demonstrate its effectiveness; no prototype was tested.
 - Their preference concerning aggregate in-app statistics remains unknown.
 
+
+Instructors and TAs:
+
+**TA A, teaching assistant participant**
+
+Note: TA A is a teaching assistant, not the instructor of record. We interviewed him because he answers student questions about lecture slides and reviews course material.
+
+Background: Teaching assistant for a course that uses Ruby on Rails. Worked with about 48 to 50 students last semester and 70 this semester. The course slides come from another school's curriculum.
+
+Interview method: Video call interview about how students ask for help, followed by app tasks done while sharing his screen from his phone, observed by a team member.
+
+Goals and needs:
+- Give students homework support, especially with Git and GitHub, such as which branch to merge into, writing pull request descriptions, and who is responsible for merging.
+- Answer common setup questions quickly, such as Ruby on Rails on Windows.
+- Keep lecture slides accurate, up to date, and in line with the curriculum, since students study from the slides first before exams.
+- Check any AI written answer against the course textbook before it reaches students, since it is still his job to make sure it is correct.
+- Prefers slides with bold definitions and bullet points over long paragraphs.
+- Values student questions and would spend at least 1 to 2 hours a week on them, possibly up to 4.
+
+Problems and concerns:
+- Students often struggle with Git and GitHub. Some open pull requests with no description, and merge responsibility is confusing.
+- The same questions come back semester after semester, such as Windows setup for Ruby on Rails, though they are not usually repeated within one semester.
+- Students usually email first. He described their usual path as ask AI, then post on EdStem, then set up Zoom or come in person if still confused.
+- Said he has never had a student ask a question that is directly on the slides or syllabus. Students come to office hours having tried other options first.
+- Found slide 9 too wordy, like a small paragraph, and noted it does not mention arrange, act, assert, which is a concept he would ask about.
+- Would not approve an AI drafted answer if it is generated without showing where it came from.
+- Would not review student questions during class because changes to content slides have to match the curriculum.
+
+Observed app use and participant comments:
+- Found slide 9 (unit tests) in about 20 seconds by swiping through the deck on his phone.
+- Asked what he would do as a student confused by slide 9 with no professor to ask, he said he would wait for a break or ask at the end. He did not mention looking for a way to ask inside the app.
+- Asked how he would add a definition as the instructor, he said he would make it bold or clearly marked and use bullet points. He described this and did not try it in the app.
+
+Reactions to proposed features:
+- Student questions posted on a slide and shown only after instructor approval: called students' questions "very valuable." Would review them on his own time or during office hours, not in class.
+- AI drafted answers: would approve them only if the draft shows the resource it pulls from, such as a textbook citation he could check. Said no to blind generation.
+
+Limitations:
+- One TA, not an instructor. His course slides are described as very complete, so his experience may differ in other courses.
+- His statement that students do not ask about things covered on the slides gives no support to a glossary of terms.
+- Not asked about the glossary, anonymous or named questions, or where questions are stored.
+- Some questions were leading, such as asking if he would put a definition "straight on the slide" and whether he would review "during class."
+- The task of spotting problems in the deck was not run.
+- Time estimates are self reported, and he said it "depends."
+- He swiped on a phone instead of using the desktop view.
+- Reactions were to a spoken description, not a prototype.
+
+**Instructor A, instructor participant**
+
+Background: Math instructor who teaches calculus and discrete math to about 50 students.
+
+Interview method: Interview about how students ask for help, followed by app tasks with a sample lecture deck, observed by a team member.
+
+Goals and needs:
+- Answer student questions in class, and by email when students ask outside class hours.
+- Have lecture slides that students can follow without prior knowledge, with acronyms explained.
+- Keep the design of the slides consistent.
+- Find out earlier that students were confused instead of learning it from exam grades.
+- Values student questions and would spend about an hour a week reviewing them, before and after class.
+- Wants to read and edit any AI drafted answer before students see it.
+
+Problems and concerns:
+- Learns that students were confused only after the exam, from their grades.
+- Students who have a question outside class hours have to email him.
+- Students often ask the same questions again, semester after semester.
+- Said students often search for answers themselves instead of asking.
+- Said the sample deck had inconsistent fonts, a missing slide, acronyms that were not explained, and assumed prior knowledge.
+- Worries an AI drafted answer might not be accurate.
+
+Observed app use and participant comments:
+- Looked through the deck and pointed out the inconsistent font, unexplained acronyms, assumed prior knowledge, and a missing slide.
+- Found slide 9 (unit tests) in about 20 seconds by swiping through the slides.
+- Asked what a confused student could do from the page, he said they would email him and that there is no way to ask on the screen.
+
+Reactions to proposed features:
+- Student questions posted on a slide and shown only after instructor approval: yes, he would review them because student questions are important, for about an hour a week, before and after class.
+- Anonymity: would rather each student chooses whether to post anonymously or not.
+- AI drafted answers: would need to read and edit them in case they are not accurate.
+- Showing questions from earlier semesters: yes, because similar questions come up each time.
+
+Limitations:
+- Answers were short and some questions were not answered, such as which terms students get stuck on and what would make him not use the feature.
+- The interviewer knows the participant personally.
+- Reactions were to a spoken description, not a prototype.
+- Time estimates are self reported.
+- His experience with math courses may differ from other subjects.
+
 ## Product Vision Statement
 
 See instructions. Delete this line and place your Product Vision Statement here — one sentence describing the improvements and new features your team is proposing for The Slide Machine.
