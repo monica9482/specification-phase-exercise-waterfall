@@ -6,7 +6,7 @@ A little exercise to get started with the specification phase of the software de
 Monica Lee  https://github.com/monica9482  
 Yusef Moustafa  https://github.com/YusefMoustafa  
 Leslie Sampaney  https://github.com/Leslie-Sampaney  
-Krishiv Seth  https://github.com/machinelearner49  
+Krishiv Seth  https://github.com/krishivseth   
 Veer Singh  https://github.com/sing1179  
 
 ## Review of the Current Application
