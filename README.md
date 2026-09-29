@@ -208,23 +208,14 @@ We are adding an instructor approved glossary and slide questions to The Slide M
 
 Students
 1. As a student, I want to open a course-specific definition directly from an unfamiliar term on a slide so that I can understand it while studying.
-
 2. As a student, I want definitions to include simple explanations and examples so that complex terminology is easier to understand.
-
 3. As a student, I want to search the glossary for a term so that I can find its meaning without remembering where it appeared.
-
 4. As a student, I want an explanation to link to relevant prerequisite terms or earlier course material so that I can revisit background knowledge I need.
-
 5. As a student, I want to return to my original slide after consulting an explanation so that I can continue studying without losing my place.
-
 6. As a student, I want to find questions and answers associated with a slide so that I can check whether they address my confusion.
-
 7. As a student, I want my question to include a reference to the slide so that the person answering can see the relevant context.
-
 8. As a student, I want to describe what I currently understand when asking a question so that the response addresses the part I am struggling with.
-
 9. As a student, I want to identify answers reviewed by the professor so that I know which explanations I can rely on.
-
 10. As a student, I want to request further clarification when an explanation is insufficient so that I can resolve what remains unclear.
     
 Instructors
