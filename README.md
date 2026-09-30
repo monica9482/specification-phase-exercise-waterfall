@@ -244,7 +244,10 @@ Instructors
 8. As an instructor, I want approved questions and answers from earlier semesters to carry over to my next class with no student names so that I don't answer the same question every term.
 9. As an instructor, I want to see how many questions each slide received so that I can find where students were confused before the exam.
 10. As an instructor, I want a clear message when the app cannot draft an answer, for example when the AI is unavailable or my usage limit is reached, so that I know to write it myself and don't wonder what went wrong.
-
+11. As an instructor, I want to write an answer myself instead of using the AI draft so that I can answer in my own words or when the AI is not available.
+12. As an instructor, I want to hide an approved answer so that I can pull it back if I find a mistake.
+13. As an instructor, I want to discard a student question that is off topic so that it never shows to other students.
+14. As an instructor, I want a notice on the lecture page when new student questions are waiting so that I know when to review them.
 
 ## Activity Diagrams
 
