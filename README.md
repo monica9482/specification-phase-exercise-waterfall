@@ -234,11 +234,14 @@ Instructors
 
 ## Activity Diagrams
 
-![alt text](story2.png)  
+![instructor story 2](story2.png)  
 As an instructor, I want to approve, edit, hold, or discard each suggested definition so that students only see wording I trust.  
-
-![alt text](story7.png)  
+  
+![instructor story 7](story7.png)  
 As an instructor, I want the app to draft an answer to a student question and show the slide text it used so that I can check it and edit it before I approve it.  
+  
+![student story 3](story3.png)  
+As a student, I want to search the glossary for a term so that I can find its meaning without remembering where it appeared.  
 
 ## Wireframes
 
