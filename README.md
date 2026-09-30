@@ -237,6 +237,9 @@ Instructors
 ![alt text](story2.png)  
 As an instructor, I want to approve, edit, hold, or discard each suggested definition so that students only see wording I trust.  
 
+![alt text](story7.png)  
+As an instructor, I want the app to draft an answer to a student question and show the slide text it used so that I can check it and edit it before I approve it.  
+
 ## Wireframes
 
 See instructions. Delete this line and place your wireframe diagrams here, covering every new screen and every existing screen your proposal changes, for every type of user.
