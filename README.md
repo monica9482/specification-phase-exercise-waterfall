@@ -41,7 +41,6 @@ Gaps:
 
 ## Prior Art & Originality
 
-
 On September 29, 2026 we read the Software Design Document sections 18 (Future Work) and 19 (Open Questions), docs/ROADMAP.md including its section 9 cut line, all 37 open issues on bloombar/slide-machine, and the pull request list (0 open, 204 closed). We also read the requirement IDs closest to our idea, PREP-1 to PREP-4, QUIZ-1 and QUIZ-2, EVAL-5, SOC-1, SHARE-1 and SHARE-2, and section 16 on privacy.
 
 Nothing in Future Work, Open Questions, the roadmap, or the issue tracker specifies a glossary for students or a way for students to ask a question on a slide. Future Work lists eight items (local models, live translation, extracting the STT pipeline, an MCP server, collaborative editing, seat-based billing, analytics dashboards, a faculty setup guide). The open issues are spec-tracking issues for templates, preflight, evaluation, billing and privacy, one narration bug (#230), and three older ideas, required transcript viewing with quiz questions mid-slideshow (#27), export (#26), and pre-fetching seed content (#5). Issue #27 goes the other direction from ours. The instructor asks the students questions there. In ours the students ask.
@@ -217,7 +216,6 @@ Limitations:
 
 ## Product Vision Statement
 
-
 The Slide Machine gets an instructor-reviewed glossary and a slide-by-slide question area. The AI drafts definitions and answers, the instructor approves, edits, holds, or discards each one, and students see only what the instructor approved, so a student gets trusted help on the exact slide that confused them.
 
 ## User Requirements
@@ -250,6 +248,19 @@ Instructors
 
 ## Activity Diagrams
 
+![instructor story 2](story2.png)  
+As an instructor, I want to approve, edit, hold, or discard each suggested definition so that students only see wording I trust.  
+  
+![instructor story 7](story7.png)  
+As an instructor, I want the app to draft an answer to a student question and show the slide text it used so that I can check it and edit it before I approve it.  
+  
+![student story 3](story3.png)  
+As a student, I want to search the glossary for a term so that I can find its meaning without remembering where it appeared.  
+  
+![student story 6](story6.png)  
+As a student, I want to find questions and answers associated with a slide so that I can check whether they address my confusion.
+
+### Swimlane versions with the unhappy paths
 
 Two diagrams per user type. Each one starts on a screen the app has today, passes through the existing flow, and shows the unhappy paths, which are the plan limit being reached, the AI provider being down, the connection dropping before a save, and a student or instructor changing their mind. Made in draw.io. The editable files are the `.drawio` files next to each image in `diagrams/`, open them at app.diagrams.net (File, Open from, Device).
 
@@ -278,7 +289,6 @@ Two diagrams per user type. Each one starts on a screen the app has today, passe
 ![Student story 1 activity diagram](diagrams/d4-student-1-open-definition.png)
 
 ## Wireframes
-
 
 Every screen the proposal adds or changes, for both user types. Changed screens are screenshots of the live app (taken September 30, 2026, on a lecture in Krishiv's account and on Monica's Biology deck as a viewer) with the new parts drawn on top. New screens are plain boxes. A dashed outline marks what is new or changed and the numbered notes under each image say what it is.
 
@@ -450,7 +460,6 @@ Every user story in the User Requirements section maps to at least one screen ab
 | Instructor 10: a clear message when the app cannot draft an answer | Instructor 6 |
 
 ## Clickable Prototype
-
 
 Figma prototype, no login needed to view. https://www.figma.com/proto/N6brbXDTkaKgmOEjn25Oaz
 
