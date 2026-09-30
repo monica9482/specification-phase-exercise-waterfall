@@ -60,7 +60,7 @@ What is new in this proposal is the student-facing glossary anchored to slide te
 ## Stakeholders
 
 Students:  
-**Student A — Student participant**  
+**Student A, Student participant**  
 Background: Student; Senior and Business.  
 Interview method: Interview about study habits and proposed features, followed by app-use tasks directly observed by a team member.  
 Goals and needs:  
@@ -93,7 +93,7 @@ Limitations:
 - The participant did not test a glossary or Q&A prototype.
 - Discomfort with disclosure of outside help does not establish their preference about aggregate in-app statistics.
   
-**Student B — Student participant**  
+**Student B, Student participant**  
 Background: Student; Grad level and Industrial Engineering.  
 Interview method: Interview about study habits and proposed features, followed by app-use tasks directly observed by a team member.  
 Goals and needs:  
