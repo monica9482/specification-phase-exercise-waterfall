@@ -216,7 +216,7 @@ Limitations:
 
 ## Product Vision Statement
 
-The Slide Machine gets an instructor-reviewed glossary and a slide-by-slide question area. The AI drafts definitions and answers, the instructor approves, edits, holds, or discards each one, and students see only what the instructor approved, so a student gets trusted help on the exact slide that confused them.
+The Slide Machine gets an instructor reviewed glossary and slide by slide question area, where the AI drafts definitions and answers, the instructor approves, edits, holds, or discards each one, and students see only what was approved, so a student gets trusted help on the exact slide that confused them.
 
 ## User Requirements
 
