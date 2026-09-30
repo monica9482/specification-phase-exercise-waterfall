@@ -234,7 +234,8 @@ Instructors
 
 ## Activity Diagrams
 
-See instructions. Delete this line and place images of your UML Activity diagrams here, each with the text of the user story it illustrates.
+![alt text](story2.png)  
+As an instructor, I want to approve, edit, hold, or discard each suggested definition so that students only see wording I trust.  
 
 ## Wireframes
 
