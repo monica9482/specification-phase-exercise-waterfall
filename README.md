@@ -242,6 +242,9 @@ As an instructor, I want the app to draft an answer to a student question and sh
   
 ![student story 3](story3.png)  
 As a student, I want to search the glossary for a term so that I can find its meaning without remembering where it appeared.  
+  
+![student story 6](story6.png)  
+As a student, I want to find questions and answers associated with a slide so that I can check whether they address my confusion.
 
 ## Wireframes
 
