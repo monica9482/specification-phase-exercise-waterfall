@@ -261,35 +261,7 @@ As an instructor, I want the app to draft an answer to a student question and sh
 As a student, I want to search the glossary for a term so that I can find its meaning without remembering where it appeared.  
   
 ![student story 6](story6.png)  
-As a student, I want to find questions and answers associated with a slide so that I can check whether they address my confusion.
-
-### Swimlane versions with the unhappy paths
-
-Two diagrams per user type. Each one starts on a screen the app has today, passes through the existing flow, and shows the unhappy paths, which are the plan limit being reached, the AI provider being down, the connection dropping before a save, and a student or instructor changing their mind. Made in draw.io. The editable files are the `.drawio` files next to each image in `diagrams/`, open them at app.diagrams.net (File, Open from, Device).
-
-### Instructor, story 7
-
-> As an instructor, I want the app to draft an answer to a student question and show the slide text it used so that I can check it and edit it before I approve it.
-
-![Instructor story 7 activity diagram](diagrams/d1-instructor-7-draft-answer.png)
-
-### Instructor, story 2
-
-> As an instructor, I want to approve, edit, hold, or discard each suggested definition so that students only see wording I trust.
-
-![Instructor story 2 activity diagram](diagrams/d2-instructor-2-review-definitions.png)
-
-### Student, story 7
-
-> As a student, I want my question to include a reference to the slide so that the person answering can see the relevant context.
-
-![Student story 7 activity diagram](diagrams/d3-student-7-ask-with-slide.png)
-
-### Student, story 1
-
-> As a student, I want to open a course-specific definition directly from an unfamiliar term on a slide so that I can understand it while studying.
-
-![Student story 1 activity diagram](diagrams/d4-student-1-open-definition.png)
+As a student, I want to find questions and answers associated with a slide so that I can check whether they address my confusion.  
 
 ## Wireframes
 
@@ -433,34 +405,7 @@ Covers user stories Student 7, Student 8, Student 9 and Student 10.
 - (1) Reuses the app's existing "Log in to..." dialog. Same Google / email form.
 - (2) One line says why. After sign in you land on the Ask form for the same slide. Reading never needs an account.
 
-Covers user stories Student 7 and Student 9.
-
-### Coverage check
-
-Every user story in the User Requirements section maps to at least one screen above.
-
-| User story | Screens |
-|---|---|
-| Student 1: open a course-specific definition directly from an unfamiliar term on a slide | Student 1, Student 2, Student 3 |
-| Student 2: definitions include simple explanations and examples | Instructor 3, Student 2 |
-| Student 3: search the glossary for a term | Student 3 |
-| Student 4: an explanation links to prerequisite terms or earlier material | Instructor 3, Student 2, Student 3 |
-| Student 5: return to my original slide after consulting an explanation | Student 2, Student 3 |
-| Student 6: find questions and answers associated with a slide | Student 1, Student 4 |
-| Student 7: my question includes a reference to the slide | Instructor 5, Student 5, Student 6 |
-| Student 8: describe what I currently understand when asking | Instructor 5, Student 5 |
-| Student 9: identify answers reviewed by the professor | Student 1, Student 4, Student 5, Student 6 |
-| Student 10: request further clarification when an explanation is insufficient | Student 4, Student 5 |
-| Instructor 1: the app suggests definitions for hard terms and acronyms | Instructor 2 |
-| Instructor 2: approve, edit, hold, or discard each suggested definition | Instructor 2, Instructor 3, Instructor 6 |
-| Instructor 3: each suggested definition shows the slide or transcript text it came from | Instructor 2, Instructor 3 |
-| Instructor 4: change or remove a definition after students can see it | Instructor 2, Instructor 3 |
-| Instructor 5: see all new student questions in one list grouped by slide | Instructor 1, Instructor 4 |
-| Instructor 6: a student question stays hidden until I approve an answer | Instructor 4, Instructor 5 |
-| Instructor 7: the app drafts an answer and shows the slide text it used | Instructor 4, Instructor 5, Instructor 6 |
-| Instructor 8: approved Q&A from earlier semesters carry over with no student names | Instructor 2, Instructor 4, Instructor 7 |
-| Instructor 9: see how many questions each slide received | Instructor 1, Instructor 4 |
-| Instructor 10: a clear message when the app cannot draft an answer | Instructor 6 |
+Covers user stories Student 7 and Student 9.  
 
 ## Clickable Prototype
 
