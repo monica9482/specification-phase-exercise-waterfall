@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Slide Machine wireframes v3</title>
+<style>
+@font-face{font-family:"Inter";src:url(fonts/Inter-var.woff2) format("woff2");font-weight:100 900}
+*{box-sizing:border-box}
+body{margin:0;background:#eee;font-family:Inter,Arial,sans-serif;color:#000;font-size:14px}
+.top{position:sticky;top:0;background:#fff;border-bottom:1px solid #999;padding:10px 20px;display:flex;gap:12px;align-items:center;z-index:5}
+.top h1{font-size:16px;margin:0;font-weight:600}
+.top .grow{flex:1}
+.top button{font:inherit;border:1px solid #000;background:#fff;padding:4px 10px;cursor:pointer}
+.top button.on{background:#000;color:#fff}
+.intro,.index{max-width:1280px;margin:16px auto;padding:0 20px;line-height:1.5}
+.index{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.index ol{margin:0;padding-left:18px}
+.screen{max-width:1280px;margin:0 auto 36px;padding:0 20px}
+.screen h2{font-size:16px;margin:0 0 6px;font-weight:600}
+.notes{margin:8px 0 0;padding-left:0;list-style:none;line-height:1.5}
+.notes li{padding-left:26px;position:relative;margin-bottom:2px}
+.notes .m{position:absolute;left:0;top:2px}
+.stories{color:#555;margin:6px 0 0}
+body.proto .screen{display:none}
+body.proto .screen.on{display:block}
+body.proto .intro,body.proto .index{display:none}
+.protoHint{display:none;max-width:1280px;margin:10px auto;padding:0 20px;color:#555}
+body.proto .protoHint{display:block}
+
+/* ---- rough wireframe vocabulary ---- */
+.frame{width:1280px;height:800px;border:1px solid #000;position:relative;overflow:hidden;background:#fff;font-size:14px;line-height:1.3}
+.frame a{text-decoration:none;color:inherit}
+.frame a:hover{outline:2px solid #06f}
+.shot{position:absolute;left:0;top:0;width:1280px;height:800px;object-fit:cover;object-position:top left}
+.m{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border:1px solid #000;border-radius:50%;font-size:11px;background:#fff;vertical-align:middle;flex:none;margin:0 3px}
+.box{border:1px solid #000;background:#fff}
+.abs{position:absolute}
+.nw{outline:2px dashed #000;outline-offset:3px}
+.btn{display:inline-block;border:1px solid #000;background:#fff;padding:4px 10px;font-size:13px;white-space:nowrap}
+.btn.dark{background:#d9d9d9}
+.g{background:#d9d9d9}
+.bar{height:9px;background:#d9d9d9;margin:5px 0}
+.w30{width:30%}.w50{width:50%}.w70{width:70%}.w90{width:90%}.w100{width:100%}
+.img{background:#d9d9d9;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px}
+.field{border:1px solid #000;background:#fff;padding:6px 8px;color:#777;font-size:13px;min-height:30px}
+.field.ta{min-height:64px}
+.lbl{font-size:12px;color:#444}
+h4{margin:0 0 6px;font-size:15px;font-weight:600}
+.small{font-size:12px}
+.row{display:flex;align-items:center;gap:8px}
+.tabs{display:flex;gap:4px}
+.tabs span{border:1px solid #000;border-bottom:none;padding:5px 10px;font-size:13px;background:#eee}
+.tabs span.on{background:#fff;font-weight:600}
+.tbl{border:1px solid #000}
+.tr{display:flex;gap:10px;padding:7px 8px;border-top:1px solid #000;align-items:center;font-size:13px}
+.tr:first-child{border-top:none;background:#eee;font-size:12px}
+.card{border:1px solid #000;padding:8px 10px;margin-bottom:8px;font-size:13px}
+.banner{border:1px solid #000;padding:8px 10px;font-size:13px;background:#eee;margin-bottom:8px}
+.drawer{position:absolute;top:56px;right:0;bottom:0;width:400px;background:#fff;border-left:1px solid #000;padding:12px 14px}
+.dialog{position:absolute;left:420px;top:200px;width:440px;background:#fff;border:1px solid #000;padding:14px 16px}
+.overlay{position:absolute;inset:0;background:rgba(0,0,0,.25)}
+.chrome .nav{height:56px;border-bottom:1px solid #000;display:flex;align-items:center;gap:10px;padding:0 14px}
+.chrome .ico{width:26px;height:26px;border:1px solid #000;display:inline-block}
+.chrome .slide{position:absolute;left:200px;top:110px;width:880px;height:495px;border:1px solid #000;padding:30px 40px}
+.chrome .pill{position:absolute;left:14px;top:66px;border:1px solid #000;padding:4px 8px;display:flex;gap:6px}
+.stitle{font-size:26px;font-weight:600;margin-bottom:16px}
+.sb{font-size:18px;line-height:1.6;margin:0;padding-left:20px}
+.ul{border-bottom:2px dotted #000}
+.modal{position:absolute;left:40px;top:20px;right:40px;bottom:20px;background:#fff;border:1px solid #000;padding:14px 20px}
+.modal h3{margin:0 0 10px;font-size:17px;font-weight:600}
+.panel{border:1px solid #000;border-top:none;padding:14px;height:640px;overflow:hidden}
+.strip{display:flex;gap:4px;align-items:flex-end;height:44px;border-bottom:1px solid #000;padding:0 6px;margin-bottom:8px}
+.strip i{display:block;flex:1;background:#d9d9d9;border:1px solid #000;border-bottom:none}
+.chk{display:inline-flex;align-items:center;gap:5px;font-size:13px}
+.chk i{width:13px;height:13px;border:1px solid #000;display:inline-block}
+.chk i.on{background:#000}
+.chk.r i{border-radius:50%}
+.rev{font-size:11px;border:1px solid #000;padding:0 4px;background:#d9d9d9}
+.note{position:absolute;border:1px solid #000;background:#fff;padding:5px 8px;font-size:12px}
+</style>
+</head>
+<body>
+<div class="top"><h1>Slide Machine: glossary + slide questions, wireframes</h1><span class="grow"></span><button id="modeAll" class="on">All screens</button><button id="modeProto">Click-through</button></div>
+<div class="protoHint">Click-through mode. Instructors start at <a href="#i-lecture">the lecture page</a>, students at <a href="#s-lecture">the shared lecture page</a>. Esc goes back to the list.</div>
+<div class="intro"><p>Existing screens are screenshots of the live app with the new parts drawn on top. New screens are boxes. Dashed outline = new or changed.</p></div>
+<div class="index"><div><b>Instructor</b><ol id="idxI"></ol></div><div><b>Student</b><ol id="idxS"></ol></div></div>
+<div id="screens"></div>
+<script>
+const M = n => `<span class="m">${n}</span>`
+const bars = ws => ws.map(w => `<div class="bar w${w}"></div>`).join('')
+const SHOTS = window.SHOTS || {}
+const shot = key => SHOTS[key] ? `<img class="shot" src="${SHOTS[key]}" alt="">` : ''
+
+/* fallback chrome when no screenshot is available */
+function chrome(o){
+  o = o || {}
+  if (SHOTS[o.shot]) return shot(o.shot)
+  return `<div class="chrome">
+    <div class="nav"><span class="ico"></span><b>The Slide Machine</b><span style="margin-left:12px">${o.editor?'Project title / ':''}<b>Lecture title</b> <span class="small" style="color:#555">12 slides</span></span><span style="flex:1"></span><span class="ico"></span><span class="ico"></span><span class="btn">English</span>${o.editor?'<span class="ico"></span>':''}<span class="ico"></span>${o.editor?'':'<span class="btn">Log in</span>'}</div>
+    <div class="pill"><span class="ico"></span>${o.editor?'<span class="ico"></span><span class="ico"></span>':''}</div>
+    <div class="slide"><span class="ico abs" style="right:8px;top:8px"></span><div class="stitle">Slide title</div><div class="row" style="align-items:flex-start"><ul class="sb" style="flex:1"><li>bullet text with a ${o.terms?'<span class="ul">key term</span>':'key term'}</li><li>bullet text</li><li>bullet with an ${o.terms?'<span class="ul">acronym</span>':'acronym'}</li><li>bullet text</li></ul><div class="img" style="width:280px;height:180px">image</div></div></div>
+    <div class="abs" style="left:380px;top:625px;width:520px;height:22px;border:1px dashed #999"></div>
+  </div>`
+}
+
+function settingsModal(tab, panel){
+  const tabs = ['General','Design','Refine with AI','Quiz','Glossary','Questions','Export','Privacy & Sharing']
+  if (SHOTS['i-settings']) {
+    return `${shot('i-settings')}
+    <div class="abs" style="left:128px;top:150px;width:1030px;height:52px;background:#fff"></div>
+    <div class="abs" style="left:0;top:200px;width:1280px;height:600px;background:#fff"></div>
+    <div class="abs" style="left:1140px;top:200px;width:140px;height:600px;background:#fff"></div>
+    <div class="abs tabs" style="left:140px;top:158px;gap:6px">${tabs.map(t=>`<span class="${t===tab?'on':''} ${(t==='Glossary'||t==='Questions')?'nw':''}">${t}</span>`).join('')}</div>
+    <div class="abs" style="left:140px;top:206px;width:1000px;height:580px;overflow:hidden">${panel}</div>
+    <a class="abs" href="#i-lecture" style="left:1118px;top:82px;width:44px;height:44px"></a>`
+  }
+  return `${chrome({editor:true, shot:'i-lecture'})}<div class="overlay"></div>
+  <div class="modal"><div class="row"><h3>Lecture settings</h3><span style="flex:1"></span><a class="btn" href="#i-lecture">X</a></div>
+  <div class="tabs">${tabs.map(t=>`<span class="${t===tab?'on':''} ${(t==='Glossary'||t==='Questions')?'nw':''}">${t}</span>`).join('')}</div>
+  <div class="panel">${panel}</div></div>`
+}
+const S = (key, withShot, without) => SHOTS[key] ? withShot : without
+
+const acts = (a) => a.map(([l,h,d]) => `<a class="btn ${d?'dark':''}" href="${h}">${l}</a>`).join(' ')
+
+const glossaryRows = `
+<div class="tbl">
+  <div class="tr"><div style="width:120px">term</div><div style="flex:1">definition</div><div style="width:120px">from</div><div style="width:110px">status</div><div style="width:280px">actions</div></div>
+  <div class="tr"><div style="width:120px"><b>Term</b></div><div style="flex:1">${bars([90,50])}</div><div style="width:120px" class="small">slide 4</div><div style="width:110px" class="small">suggested</div><div style="width:280px">${acts([['Approve','#i-glossary',1],['Edit','#i-glossary-edit'],['Hold','#i-glossary'],['Discard','#i-glossary']])}</div></div>
+  <div class="tr"><div style="width:120px"><b>Acronym</b></div><div style="flex:1">${bars([70])}</div><div style="width:120px" class="small">slide 2</div><div style="width:110px" class="small">suggested</div><div style="width:280px">${acts([['Approve','#i-glossary',1],['Edit','#i-glossary-edit'],['Hold','#i-glossary'],['Discard','#i-glossary']])}</div></div>
+  <div class="tr"><div style="width:120px"><b>Term</b></div><div style="flex:1">${bars([100,40])}</div><div style="width:120px" class="small">slide 7</div><div style="width:110px" class="small">suggested</div><div style="width:280px">${acts([['Approve','#i-glossary',1],['Edit','#i-glossary-edit'],['Hold','#i-glossary'],['Discard','#i-glossary']])}</div></div>
+  <div class="tr"><div style="width:120px"><b>Term</b></div><div style="flex:1">${bars([80,60])}</div><div style="width:120px" class="small">slide 1</div><div style="width:110px" class="small"><b>approved</b> (students see it)</div><div style="width:280px">${acts([['Edit','#i-glossary-edit'],['Hide','#i-glossary'],['Discard','#i-glossary']])}</div></div>
+  <div class="tr"><div style="width:120px"><b>Term</b></div><div style="flex:1">${bars([60])}</div><div style="width:120px" class="small">slide 9</div><div style="width:110px" class="small">on hold</div><div style="width:280px">${acts([['Approve','#i-glossary',1],['Edit','#i-glossary-edit'],['Discard','#i-glossary']])}</div></div>
+</div>`
+
+const glossaryHead = `<div class="row"><h4>Glossary ${M(1)}</h4><span style="flex:1"></span><a class="btn dark" href="#i-glossary">Suggest definitions</a>${M(2)}<a class="btn" href="#i-glossary-edit">Add a term</a><a class="btn" href="#i-carry-over">Carry over from an earlier lecture</a>${M(3)}</div>
+<p class="small" style="margin:4px 0 10px">students only see approved ones. AI drafts use the plan's AI allowance (same as quiz)</p>`
+
+const qcard = (o) => `<div class="card ${o.nw?'nw':''}">
+  <div class="row"><div class="img" style="width:80px;height:46px">slide ${o.slide||4}</div><div style="flex:1"><div class="small">${o.anon?'Anonymous':'Student name'} · ${o.when||'2h ago'} ${o.carried?'· <span class="rev">from an earlier class</span>':''}</div><b>student's question about this slide</b><div class="small">what they understand so far:</div>${bars([60])}</div><div style="width:230px">${o.acts}</div></div>
+  ${o.answer||''}
+</div>`
+
+const questionsHead = (active) => `<div class="row"><h4>Student questions ${M(1)}</h4><span style="flex:1"></span><a class="btn" href="#i-carry-over">Carry over from an earlier lecture</a></div>
+<p class="small" style="margin:4px 0 8px">hidden from other students until you approve an answer</p>
+<div class="small">where students asked (per slide) ${M(2)}</div>
+<div class="strip">${[10,4,2,40,20,6,2,30,12,2,4,2].map((h,i)=>`<i style="height:${h}px;${i+1===active?'background:#888':''}"></i>`).join('')}</div>
+<div class="row small" style="margin-bottom:8px">filter: <a class="btn" href="#i-questions">new (3)</a> <a class="btn" href="#i-questions">answered (6)</a> <a class="btn" href="#i-questions">on hold (1)</a> <a class="btn dark" href="#i-questions">all</a></div>`
+
+const screens = [
+{ id:'i-lecture', user:'Instructor', kind:'changed', title:'Lecture page (owner)', stories:['Instructor 5','Instructor 9'],
+  notes:['Notice under the nav with the count of new student questions. Review opens Lecture settings on the Questions tab.','Small tag on each slide with its question count. Opens the Questions tab filtered to that slide.','Two new items at the bottom of the slide menu.','~Rest of the page is unchanged.'],
+  html: chrome({editor:true, shot:'i-lecture'}) +
+    `<div class="abs box nw" style="left:${S('i-lecture',770,440)}px;top:${S('i-lecture',86,64)}px;padding:5px 10px;display:flex;gap:10px;align-items:center">${M(1)}<b>3 new student questions</b> <a class="btn dark" href="#i-questions">Review</a> <a href="#i-lecture">x</a></div>
+     <a class="abs box nw small" style="left:${S('i-lecture',166,212)}px;top:${S('i-lecture',655,568)}px;padding:3px 8px" href="#i-questions">${M(2)} 2 questions · 1 new</a>
+     <div class="abs box" style="left:${S('i-lecture',890,850)}px;top:${S('i-lecture',200,150)}px;width:220px;padding:4px 0;font-size:13px">
+       <div style="padding:4px 10px;color:#777">Speak this slide</div><div style="padding:4px 10px;color:#777">Play original audio</div><div style="padding:4px 10px;color:#777">Refine this slide with AI</div><div style="padding:4px 10px;color:#777">Edit spoken transcript</div><div style="padding:4px 10px;color:#777">Change layout</div><div style="padding:4px 10px;color:#777">Duplicate slide</div>
+       <div class="nw" style="margin:6px 6px 0"><a style="display:block;padding:4px 6px" href="#i-questions">${M(3)}Questions on this slide (1 new)</a><a style="display:block;padding:4px 6px" href="#i-glossary">Glossary terms on this slide (3)</a></div>
+       <div style="padding:8px 10px 4px;color:#777">Delete slide</div>
+     </div>`
+},
+{ id:'i-glossary', user:'Instructor', kind:'new', title:'Lecture settings, Glossary tab', stories:['Instructor 1','Instructor 2','Instructor 3','Instructor 4','Instructor 8'],
+  notes:['New tab next to Quiz. Other tabs unchanged.','Suggest definitions asks the AI for hard terms and acronyms from the slides and transcript. Add a term is manual.','Carry over reuses approved terms from an earlier lecture.','Each row: term, definition, which slide it came from, status, and Approve / Edit / Hold / Discard. Approved rows get Hide instead, so a bad one can be pulled later.'],
+  html: settingsModal('Glossary', glossaryHead + glossaryRows + `<div class="small" style="margin-top:8px">${M(4)} actions column</div>`)
+},
+{ id:'i-glossary-edit', user:'Instructor', kind:'new', title:'Glossary tab, editing one definition', stories:['Instructor 2','Instructor 3','Instructor 4','Student 2','Student 4'],
+  notes:['Row expands. Term, definition, optional example, optional related terms.','Slide text it came from stays visible while editing.','Save = approve (students see it) or keep on hold. Cancel drops the edit.'],
+  html: settingsModal('Glossary', glossaryHead + `
+    <div class="box nw" style="padding:10px;display:flex;gap:20px">
+      <div style="flex:1">${M(1)}<div class="lbl">term</div><div class="field">Term</div><div class="lbl" style="margin-top:6px">definition</div><div class="field ta">definition text students see</div><div class="lbl" style="margin-top:6px">example (optional)</div><div class="field ta">plain language example</div><div class="lbl" style="margin-top:6px">related terms (optional)</div><div class="field">prereq term x, earlier term x</div></div>
+      <div style="width:380px">${M(2)}<div class="lbl">where it came from</div><div class="box" style="padding:8px;font-size:12px"><b>slide 4</b>: ...the slide text the AI used...<br>transcript: "...what you said..."</div>
+        <div style="margin-top:14px" class="chk r"><i class="on"></i> approve and show to students</div><br><div class="chk r" style="margin-top:4px"><i></i> save on hold (hidden)</div>
+        <div style="margin-top:20px;text-align:right"><a class="btn" href="#i-glossary">Cancel</a> <a class="btn dark" href="#i-glossary">Save</a>${M(3)}</div></div>
+    </div>
+    <div class="tr" style="border:1px solid #000;margin-top:8px"><div style="width:120px"><b>Term</b></div><div style="flex:1">${bars([70])}</div><div style="width:120px" class="small">slide 7</div><div style="width:110px" class="small">suggested</div><div style="width:280px">${acts([['Approve','#i-glossary',1],['Edit','#i-glossary-edit'],['Hold','#i-glossary'],['Discard','#i-glossary']])}</div></div>`)
+},
+{ id:'i-questions', user:'Instructor', kind:'new', title:'Lecture settings, Questions tab', stories:['Instructor 5','Instructor 6','Instructor 7','Instructor 8','Instructor 9'],
+  notes:['New tab. All student questions on this lecture in one list, grouped by slide.','Bar per slide = how many questions it got. Click one to filter.','No answer yet: Draft an answer with AI, or Write it myself. Nothing is shown to other students until Approve.','Questions carried over from an earlier class come with no name.'],
+  html: settingsModal('Questions', questionsHead(0) + `<div class="small"><b>slide 4</b></div>` +
+    qcard({acts:`<div class="small">new</div>${acts([['Hold','#i-questions'],['Discard','#i-questions']])}`, answer:`<div style="margin:6px 0 0 90px">${M(3)}<a class="btn dark" href="#i-question-review">Draft an answer with AI</a> <a class="btn" href="#i-question-review">Write it myself</a></div>`}) +
+    qcard({anon:true, when:'yesterday', acts:`<div class="small">draft ready</div>${acts([['Approve','#i-questions',1],['Edit','#i-question-review'],['Hold','#i-questions'],['Discard','#i-questions']])}`, answer:`<div style="margin:6px 0 0 90px"><div class="small">AI draft (not shown to students yet)</div>${bars([100,60])}<a class="small" href="#i-question-review" style="text-decoration:underline">slide text used</a></div>`}) +
+    `<div class="small"><b>slide 8</b></div>` +
+    qcard({anon:true, carried:true, slide:8, when:'3 days ago', acts:`<div class="small">answered, visible ${M(4)}</div>${acts([['Edit','#i-question-review'],['Hide','#i-questions'],['Discard','#i-questions']])}`}))
+},
+{ id:'i-question-review', user:'Instructor', kind:'new', title:'Questions tab, reviewing one question', stories:['Instructor 6','Instructor 7','Student 7','Student 8'],
+  notes:['Left: the question, the slide, and what the student said they understand.','Right: the AI draft (editable) and the slide text it used, with the bits it relied on marked. TA A said he would not approve a draft without this.','Approve publishes under the slide. Save on hold keeps the edit hidden. Discard / Cancel.'],
+  html: settingsModal('Questions', questionsHead(4) + `<div class="small"><b>slide 4</b></div>
+    <div class="card nw" style="display:flex;gap:20px">
+      <div style="flex:1">${M(1)}<div class="row"><div class="img" style="width:80px;height:46px">slide 4</div><div class="small">Student name · 2h ago</div></div><div class="lbl" style="margin-top:8px">question</div><b>student's question, in their words</b><div class="lbl" style="margin-top:8px">what they understand so far</div>${bars([90,50])}<div class="lbl" style="margin-top:8px">status: draft ready, hidden from students</div></div>
+      <div style="width:520px">${M(2)}<div class="lbl">answer (AI draft, edit freely)</div><div class="field ta" style="min-height:90px">drafted answer text</div><a class="btn small" href="#i-question-review">Draft again</a>
+        <div class="box" style="padding:8px;font-size:12px;margin-top:8px"><b>slide text used</b> · slide 4<br>• <span class="g">bullet the draft relied on</span><br>• bullet text<br>transcript: "...<span class="g">the sentence you said about it</span>..."</div>
+        <div style="margin-top:12px;text-align:right"><a class="btn" href="#i-questions">Cancel</a> <a class="btn" href="#i-questions">Save on hold</a> <a class="btn" href="#i-questions">Discard</a> <a class="btn dark" href="#i-questions">Approve and show to students</a>${M(3)}</div></div>
+    </div>`)
+},
+{ id:'i-errors', user:'Instructor', kind:'new', title:'Questions tab, error states (AI down, plan limit, offline)', stories:['Instructor 10','Instructor 2','Instructor 7'],
+  notes:['AI provider refused or timed out. Answer field stays empty and ready to type in.','Plan AI allowance used up. See usage goes to Account settings, Plan & Usage (exists today).','Approve/Save did not reach the server. Edit is kept, Retry resends. Same banners on the Glossary tab.'],
+  html: settingsModal('Questions', questionsHead(4) + `
+    <div class="banner nw">${M(1)}<b>Could not draft an answer, the AI service is unavailable right now.</b> Try again in a few minutes or write the answer yourself. <a class="btn" href="#i-question-review">Try again</a> <a class="btn" href="#i-question-review">Write it myself</a></div>
+    <div class="banner nw">${M(2)}<b>Could not draft, your plan's AI generation limit is reached.</b> Resets on (date). <a class="btn" href="#i-errors">See usage</a> <a class="btn" href="#i-question-review">Write it myself</a></div>
+    <div class="banner nw">${M(3)}<b>You appear to be offline. Your last change was not saved.</b> The edit is kept on this page. <a class="btn dark" href="#i-questions">Retry</a></div>
+    <div class="small"><b>slide 4</b></div>` +
+    qcard({acts:`<div class="small">approve: not saved</div>${acts([['Retry','#i-questions',1],['Keep editing','#i-question-review']])}`, answer:`<div style="margin:6px 0 0 90px"><div class="small">your edited answer</div>${bars([100,70])}</div>`}))
+},
+{ id:'i-carry-over', user:'Instructor', kind:'new', title:'Carry over from an earlier lecture', stories:['Instructor 8'],
+  notes:['Pick one of your earlier lectures and what to bring over.','Student names are removed. Carried questions show as "from an earlier class". Only approved items come across.'],
+  html: settingsModal('Questions', questionsHead(0) + `<div class="small"><b>slide 4</b></div>` + qcard({acts:`<div class="small">new</div>`})) +
+    `<div class="dialog nw"><h4>Carry over from an earlier lecture ${M(1)}</h4>
+     <div class="lbl">lecture to copy from</div><div class="field">Earlier lecture title (Project title) ▾</div>
+     <div class="lbl" style="margin-top:8px">what to carry over</div>
+     <div class="chk"><i class="on"></i> approved glossary terms (8)</div><br><div class="chk"><i class="on"></i> approved questions and answers (6)</div>
+     <div class="box small" style="padding:6px 8px;margin-top:10px">${M(2)} student names are removed. shown to students as "from an earlier class"</div>
+     <div style="margin-top:12px;text-align:right"><a class="btn" href="#i-questions">Cancel</a> <a class="btn dark" href="#i-questions">Carry over</a></div></div>`
+},
+/* ---------- student ---------- */
+{ id:'s-lecture', user:'Student', kind:'changed', title:'Shared lecture page (signed out)', stories:['Student 1','Student 6','Student 9'],
+  notes:['Glossary button in the nav, next to the language switcher.','Terms with an approved definition get a dotted underline on the slide. Click one to see the definition.','Questions area under the slide. Count of approved answers, and Ask about this slide (needs sign in).','~Slides, play, language, share and full screen are as today.'],
+  html: chrome({shot:'s-lecture', terms:true}) +
+    `<a class="abs btn nw" style="left:${S('s-lecture',870,1040)}px;top:15px" href="#s-glossary">${M(1)}Glossary</a>
+     ${S('s-lecture', `<a class="abs" href="#s-term" style="left:424px;top:370px;width:78px;height:26px;border-bottom:2px dotted #000"></a><a class="abs" href="#s-term" style="left:370px;top:424px;width:168px;height:28px;border-bottom:2px dotted #000"></a><div class="abs" style="left:700px;top:372px">${M(2)}</div>`, `<div class="abs" style="left:290px;top:262px">${M(2)}</div>`)}
+     <div class="abs nw" style="left:${S('s-lecture',152,200)}px;top:${S('s-lecture',748,660)}px;display:flex;gap:10px;align-items:center;padding:4px;background:#fff">${M(3)}<a class="btn" href="#s-questions">Questions on this slide (2)</a><a class="btn dark" href="#s-signin">Ask about this slide</a><span class="small" style="color:#555">answers were reviewed by the instructor</span></div>`
+},
+{ id:'s-term', user:'Student', kind:'new', title:'Definition popover on a term', stories:['Student 1','Student 2','Student 4','Student 5'],
+  notes:['Click the underlined term, a small box opens next to it. Close (x, Esc, or click the slide) and you are back where you were.','Definition, example, related terms (each opens its own box), and the reviewed mark.','Open full glossary goes to the Glossary panel.'],
+  html: chrome({shot:'s-lecture', terms:true}) +
+    `<div class="abs" style="left:${S('s-lecture',152,200)}px;top:${S('s-lecture',748,660)}px;display:flex;gap:10px;background:#fff;padding:4px"><a class="btn" href="#s-questions">Questions on this slide (2)</a><a class="btn dark" href="#s-signin">Ask about this slide</a></div>
+     ${S('s-lecture', `<div class="abs" style="left:424px;top:370px;width:78px;height:26px;border-bottom:2px dotted #000;background:rgba(0,0,0,.08)"></div>`, '')}
+     <div class="abs box nw" style="left:${S('s-lecture',420,330)}px;top:${S('s-lecture',402,270)}px;width:320px;padding:10px 12px">
+       <div class="row"><b>Key term</b> ${M(1)}<span class="rev">reviewed by instructor</span><span style="flex:1"></span><a href="#s-lecture">x</a></div>
+       <div class="lbl" style="margin-top:6px">definition</div>${bars([100,90,50])}
+       <div class="lbl">example</div>${bars([80])}
+       <div class="lbl">related terms ${M(2)}</div><div class="row" style="margin:4px 0 8px"><a class="btn small" href="#s-term">prereq term</a><a class="btn small" href="#s-term">earlier term</a></div>
+       <a class="btn small" href="#s-glossary">Open full glossary</a>${M(3)}
+     </div>`
+},
+{ id:'s-glossary', user:'Student', kind:'new', title:'Glossary panel', stories:['Student 1','Student 3','Student 4','Student 5'],
+  notes:['Panel beside the slides. Search filters as you type.','Each term says which slide it is on. Go to slide jumps there and keeps the panel open.','Footer says everything here was approved by the instructor.'],
+  html: chrome({shot:'s-lecture', terms:true}) +
+    `<div class="drawer nw"><div class="row"><h4>Glossary ${M(1)}</h4><span style="flex:1"></span><a href="#s-lecture">x</a></div>
+     <div class="field" style="margin-bottom:8px">search terms</div>
+     <div class="tr" style="border-top:1px solid #000"><b>Acronym</b><span class="small">slide 2</span></div>
+     <div class="box" style="padding:8px;background:#f3f3f3"><div class="row"><b>Key term</b><span class="small">slide 4</span><span style="flex:1"></span><a class="btn small" href="#s-lecture">Go to slide</a>${M(2)}</div><div class="lbl">definition</div>${bars([100,80])}<div class="lbl">example</div>${bars([60])}<div class="lbl">related</div><div class="row"><a class="btn small" href="#s-glossary">prereq term</a><a class="btn small" href="#s-glossary">earlier term</a></div></div>
+     <div class="tr" style="border-top:none"><b>Term</b><span class="small">slide 4</span></div>
+     <div class="tr"><b>Term</b><span class="small">slide 7</span></div>
+     <div class="tr"><b>Term</b><span class="small">slide 9</span></div>
+     <div class="tr"><b>Term</b><span class="small">slide 11</span></div>
+     <div class="abs small" style="left:14px;bottom:12px;color:#555">${M(3)} all definitions approved by the instructor</div></div>`
+},
+{ id:'s-questions', user:'Student', kind:'new', title:'Questions on this slide', stories:['Student 6','Student 9','Student 10'],
+  notes:['Only approved questions and answers show, each with the reviewed mark.','Ask a follow-up on any answer when it is not enough.','Signed in: your own questions show at the top with their status (waiting / answered). Signed out you just see the approved list and a sign in prompt on Ask.'],
+  html: chrome({shot:'s-lecture', terms:true}) +
+    `<div class="drawer nw"><div class="row"><h4>Questions on slide 4 ${M(1)}</h4><span style="flex:1"></span><a href="#s-lecture">x</a></div>
+     <div class="banner">sent to your instructor. shows here for everyone once approved</div>
+     <div class="lbl">your questions ${M(3)}</div>
+     <div class="card" style="border-style:dashed"><div class="small">you (anonymous) · just now</div><b>your question</b><div class="small">status: waiting for the instructor</div></div>
+     <div class="lbl">answered questions on this slide</div>
+     <div class="card"><div class="small">Anonymous · slide 4</div><b>student's question</b><div class="small">answer <span class="rev">reviewed by instructor</span></div>${bars([100,70])}<a class="btn small" href="#s-ask">Ask a follow-up</a>${M(2)}</div>
+     <div class="card"><div class="small">Anonymous · <span class="rev">from an earlier class</span></div><b>student's question</b><div class="small">answer <span class="rev">reviewed by instructor</span></div>${bars([100,50])}<a class="btn small" href="#s-ask">Ask a follow-up</a></div>
+     <a class="btn dark" href="#s-ask">Ask about this slide</a> <span class="small">(sign in first if you are not)</span></div>`
+},
+{ id:'s-ask', user:'Student', kind:'new', title:'Ask about this slide (signed in)', stories:['Student 7','Student 8','Student 9','Student 10'],
+  notes:['The slide is attached automatically.','Question + optional "what you understand so far". Post as your name or anonymous, per question.','If the send fails the text stays and you get Try again. A follow-up uses this same form with the earlier answer attached.'],
+  html: chrome({shot:'s-lecture', terms:true}) +
+    `<div class="drawer nw"><div class="row"><h4>Ask about slide 4</h4><span style="flex:1"></span><a href="#s-questions">x</a></div>
+     <div class="banner" style="border-style:dashed">${M(3)}(if offline) could not send. your text is kept. <a class="btn small" href="#s-questions">Try again</a></div>
+     <div class="row">${M(1)}<div class="img" style="width:80px;height:46px">slide 4</div><span class="small">attached to your question</span></div>
+     <div class="lbl" style="margin-top:8px">your question</div><div class="field ta">what is confusing you on this slide</div>
+     <div class="lbl" style="margin-top:8px">what you understand so far (optional) ${M(2)}</div><div class="field ta"></div>
+     <div class="lbl" style="margin-top:8px">post as</div><div class="chk r"><i></i> your name</div> &nbsp; <div class="chk r"><i class="on"></i> anonymous (instructor does not see your name either)</div>
+     <div class="small" style="margin-top:8px;color:#555">only the instructor sees this until they approve an answer</div>
+     <div style="margin-top:12px;text-align:right"><a class="btn" href="#s-questions">Cancel</a> <a class="btn dark" href="#s-questions">Send</a></div></div>`
+},
+{ id:'s-signin', user:'Student', kind:'changed', title:'Sign in to ask (existing dialog, new title)', stories:['Student 7','Student 9'],
+  notes:['Reuses the app\'s existing "Log in to..." dialog. Same Google / email form.','One line says why. After sign in you land on the Ask form for the same slide. Reading never needs an account.'],
+  html: chrome({shot:'s-lecture', terms:true}) + `<div class="overlay"></div>
+    <div class="dialog" style="width:380px;top:230px;left:450px"><h4>Log in to ask a question ${M(1)}</h4><div class="small" style="color:#555">${M(2)} your question goes to the instructor. you can post anonymously.</div>
+     <a class="btn" href="#s-ask" style="display:block;text-align:center;margin:10px 0">Sign in with Google</a><div class="small" style="text-align:center">or</div>
+     <div class="lbl">email</div><div class="field"></div><div class="lbl" style="margin-top:6px">password</div><div class="field"></div>
+     <div class="row" style="margin-top:10px"><span class="small">no account? <a href="#s-signin" style="text-decoration:underline">create one</a></span><span style="flex:1"></span><a class="btn" href="#s-lecture">Cancel</a><a class="btn dark" href="#s-ask">Sign in</a></div></div>`
+}
+]
+
+/* ---------- render ---------- */
+const root = document.getElementById('screens')
+const idx = {Instructor: document.getElementById('idxI'), Student: document.getElementById('idxS')}
+screens.forEach((s, i) => {
+  const sec = document.createElement('section'); sec.className = 'screen'; sec.id = s.id
+  let k = 0
+  sec.innerHTML = `<h2>${s.user} ${s.user==='Instructor'?screens.filter(x=>x.user==='Instructor').indexOf(s)+1:screens.filter(x=>x.user==='Student').indexOf(s)+1}. ${s.title} (${s.kind === 'new' ? 'new screen' : 'changed screen'})</h2>
+    <div class="frame" data-id="${s.id}">${s.html}</div>
+    <ul class="notes">${s.notes.map(n => n.startsWith('~') ? `<li>${n.slice(1)}</li>` : `<li><span class="m">${++k}</span>${n}</li>`).join('')}</ul>
+    <p class="stories">Covers user stories ${s.stories.join(', ')}.</p>`
+  root.appendChild(sec)
+  const li = document.createElement('li'); li.innerHTML = `<a href="#${s.id}">${s.title}</a>`; idx[s.user].appendChild(li)
+})
+
+/* hand-placed feel: small deterministic offsets on boxes, buttons and cards */
+let seed = 7
+const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280 }
+document.querySelectorAll('.frame .btn, .frame .card, .frame .box, .frame .field, .frame .banner, .frame .img').forEach(el => {
+  const dx = Math.round((rnd() - .5) * 5), dy = Math.round((rnd() - .5) * 4)
+  el.style.transform = `translate(${dx}px,${dy}px)`
+  if (el.classList.contains('btn')) el.style.paddingRight = (8 + Math.round(rnd() * 10)) + 'px'
+})
+
+const body = document.body, bAll = document.getElementById('modeAll'), bProto = document.getElementById('modeProto')
+function show(id){ document.querySelectorAll('.screen').forEach(el => el.classList.toggle('on', el.id === id)) }
+function setMode(p){ body.classList.toggle('proto', p); bAll.classList.toggle('on', !p); bProto.classList.toggle('on', p); if (p) show((location.hash || '#i-lecture').slice(1)) }
+bAll.onclick = () => setMode(false)
+bProto.onclick = () => { if (!location.hash) location.hash = '#i-lecture'; setMode(true) }
+window.addEventListener('hashchange', () => { if (body.classList.contains('proto')) { show(location.hash.slice(1)); window.scrollTo(0, 0) } })
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && body.classList.contains('proto')) setMode(false) })
+if (location.hash && document.getElementById(location.hash.slice(1))) setMode(true)
+</script>
+</body>
+</html>

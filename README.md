@@ -41,7 +41,21 @@ Gaps:
 
 ## Prior Art & Originality
 
-See instructions. Delete this line and replace with a short statement of what your team checked (the project's Future Work and Open Questions, its roadmap, and its open issues and pull requests) and which parts of your proposal are original — new work not already specified, scheduled, or proposed by someone else.
+On September 29, 2026 we read the Software Design Document sections 18 (Future Work) and 19 (Open Questions), docs/ROADMAP.md including its section 9 cut line, all 37 open issues on bloombar/slide-machine, and the pull request list (0 open, 204 closed). We also read the requirement IDs closest to our idea, PREP-1 to PREP-4, QUIZ-1 and QUIZ-2, EVAL-5, SOC-1, SHARE-1 and SHARE-2, and section 16 on privacy.
+
+Nothing in Future Work, Open Questions, the roadmap, or the issue tracker specifies a glossary for students or a way for students to ask a question on a slide. Future Work lists eight items (local models, live translation, extracting the STT pipeline, an MCP server, collaborative editing, seat-based billing, analytics dashboards, a faculty setup guide). The open issues are spec-tracking issues for templates, preflight, evaluation, billing and privacy, one narration bug (#230), and three older ideas, required transcript viewing with quiz questions mid-slideshow (#27), export (#26), and pre-fetching seed content (#5). Issue #27 goes the other direction from ours. The instructor asks the students questions there. In ours the students ask.
+
+Three existing things sit close to our proposal, and we built on them rather than around them.
+
+PREP-1 and PREP-2 already have the AI extract key terms, acronyms and a short gloss from seed material before a lecture, for the instructor to prune and disambiguate. That list exists to steer generation and speech recognition and students never see it. Our glossary starts from the same extraction but runs after the lecture on what was actually said, adds an approve, edit, hold, discard state per term, shows the slide text each definition came from, and puts the approved result in front of students on the slide itself. The student-facing half and the approval gate are new.
+
+QUIZ-1 and QUIZ-2 set the pattern where the AI drafts, the instructor reviews every item, then publishes. We copied that pattern on purpose for definitions and answers, and we put both new tabs next to Quiz in Lecture settings so the instructor meets the same workflow in the same place. The pattern is prior art. Applying it to student questions is ours.
+
+EVAL-5 describes a per-slide relevance rating from students and then declines to build it for the pilot, putting the rating inside the exit ticket instead. Our "where students asked" strip on the Questions tab is not a rating. It counts real questions per slide. It gives the instructor the confusion signal EVAL-5 wanted, as a byproduct of answering questions, at no extra cost per lecture.
+
+Two constraints from section 16 shaped the design. A question a student types is student data, so the draft request sends the model only the question text and the slide text, never the student's name or email, and a student can post anonymously to the instructor as well. Every AI draft is metered against the instructor's AI generation allowance under BILL-3, the same as a quiz, and both new tabs show the plan limit message when the cap binds.
+
+What is new in this proposal is the student-facing glossary anchored to slide terms, the slide-by-slide question area with instructor approval before anything is shown, AI drafts that display the slide text they used, per-slide question counts, and carry-over of approved terms and answers to a later lecture with student names removed.
 
 ## Stakeholders
 
@@ -202,7 +216,7 @@ Limitations:
 
 ## Product Vision Statement
 
-We are adding an instructor approved glossary and slide questions to The Slide Machine so that students can get trusted help on the exact slide that confused them, with the AI drafting definitions and answers and the instructor approving, editing, holding, or discarding each one before students see it.
+The Slide Machine gets an instructor-reviewed glossary and a slide-by-slide question area. The AI drafts definitions and answers, the instructor approves, edits, holds, or discards each one, and students see only what the instructor approved, so a student gets trusted help on the exact slide that confused them.
 
 ## User Requirements
 
@@ -246,13 +260,212 @@ As a student, I want to search the glossary for a term so that I can find its me
 ![student story 6](story6.png)  
 As a student, I want to find questions and answers associated with a slide so that I can check whether they address my confusion.
 
+### Swimlane versions with the unhappy paths
+
+Two diagrams per user type. Each one starts on a screen the app has today, passes through the existing flow, and shows the unhappy paths, which are the plan limit being reached, the AI provider being down, the connection dropping before a save, and a student or instructor changing their mind. Made in draw.io. The editable files are the `.drawio` files next to each image in `diagrams/`, open them at app.diagrams.net (File, Open from, Device).
+
+### Instructor, story 7
+
+> As an instructor, I want the app to draft an answer to a student question and show the slide text it used so that I can check it and edit it before I approve it.
+
+![Instructor story 7 activity diagram](diagrams/d1-instructor-7-draft-answer.png)
+
+### Instructor, story 2
+
+> As an instructor, I want to approve, edit, hold, or discard each suggested definition so that students only see wording I trust.
+
+![Instructor story 2 activity diagram](diagrams/d2-instructor-2-review-definitions.png)
+
+### Student, story 7
+
+> As a student, I want my question to include a reference to the slide so that the person answering can see the relevant context.
+
+![Student story 7 activity diagram](diagrams/d3-student-7-ask-with-slide.png)
+
+### Student, story 1
+
+> As a student, I want to open a course-specific definition directly from an unfamiliar term on a slide so that I can understand it while studying.
+
+![Student story 1 activity diagram](diagrams/d4-student-1-open-definition.png)
+
 ## Wireframes
 
-See instructions. Delete this line and place your wireframe diagrams here, covering every new screen and every existing screen your proposal changes, for every type of user.
+Every screen the proposal adds or changes, for both user types. Changed screens are screenshots of the live app (taken September 30, 2026, on a lecture in Krishiv's account and on Monica's Biology deck as a viewer) with the new parts drawn on top. New screens are plain boxes. A dashed outline marks what is new or changed and the numbered notes under each image say what it is.
+
+Where things live. Instructor review happens in two new tabs of the existing Lecture settings modal, Glossary and Questions, placed right after Quiz. That is where the app already puts AI work the instructor checks before students see it (Quiz has generate, review, publish, and Refine with AI works the same way). Students get everything on the lecture page they already open from the shared link. Reading the glossary and the approved answers needs no account. Asking a question does, through the app's existing "Log in to" gate, so names stay inside the app and a student can pick anonymous per question.
+
+The same screens are in Figma with the click-through wired, linked in the Clickable Prototype section.
+
+### Instructor screens
+
+#### Instructor 1. Lecture page (owner) (changed screen)
+
+![Lecture page (owner)](wireframes/png/i-lecture.png)
+
+- (1) Notice under the nav with the count of new student questions. Review opens Lecture settings on the Questions tab.
+- (2) Small tag on each slide with its question count. Opens the Questions tab filtered to that slide.
+- (3) Two new items at the bottom of the slide menu.
+- Rest of the page is unchanged.
+
+Covers user stories Instructor 5 and Instructor 9.
+
+#### Instructor 2. Lecture settings, Glossary tab (new screen)
+
+![Lecture settings, Glossary tab](wireframes/png/i-glossary.png)
+
+- (1) New tab next to Quiz. Other tabs unchanged.
+- (2) Suggest definitions asks the AI for hard terms and acronyms from the slides and transcript. Add a term is manual.
+- (3) Carry over reuses approved terms from an earlier lecture.
+- (4) Each row: term, definition, which slide it came from, status, and Approve / Edit / Hold / Discard. Approved rows get Hide instead, so a bad one can be pulled later.
+
+Covers user stories Instructor 1, Instructor 2, Instructor 3, Instructor 4 and Instructor 8.
+
+#### Instructor 3. Glossary tab, editing one definition (new screen)
+
+![Glossary tab, editing one definition](wireframes/png/i-glossary-edit.png)
+
+- (1) Row expands. Term, definition, optional example, optional related terms.
+- (2) Slide text it came from stays visible while editing.
+- (3) Save = approve (students see it) or keep on hold. Cancel drops the edit.
+
+Covers user stories Instructor 2, Instructor 3, Instructor 4, Student 2 and Student 4.
+
+#### Instructor 4. Lecture settings, Questions tab (new screen)
+
+![Lecture settings, Questions tab](wireframes/png/i-questions.png)
+
+- (1) New tab. All student questions on this lecture in one list, grouped by slide.
+- (2) Bar per slide = how many questions it got. Click one to filter.
+- (3) No answer yet: Draft an answer with AI, or Write it myself. Nothing is shown to other students until Approve.
+- (4) Questions carried over from an earlier class come with no name.
+
+Covers user stories Instructor 5, Instructor 6, Instructor 7, Instructor 8 and Instructor 9.
+
+#### Instructor 5. Questions tab, reviewing one question (new screen)
+
+![Questions tab, reviewing one question](wireframes/png/i-question-review.png)
+
+- (1) Left: the question, the slide, and what the student said they understand.
+- (2) Right: the AI draft (editable) and the slide text it used, with the bits it relied on marked. TA A said he would not approve a draft without this.
+- (3) Approve publishes under the slide. Save on hold keeps the edit hidden. Discard / Cancel.
+
+Covers user stories Instructor 6, Instructor 7, Student 7 and Student 8.
+
+#### Instructor 6. Questions tab, error states (AI down, plan limit, offline) (new screen)
+
+![Questions tab, error states (AI down, plan limit, offline)](wireframes/png/i-errors.png)
+
+- (1) AI provider refused or timed out. Answer field stays empty and ready to type in.
+- (2) Plan AI allowance used up. See usage goes to Account settings, Plan & Usage (exists today).
+- (3) Approve/Save did not reach the server. Edit is kept, Retry resends. Same banners on the Glossary tab.
+
+Covers user stories Instructor 10, Instructor 2 and Instructor 7.
+
+#### Instructor 7. Carry over from an earlier lecture (new screen)
+
+![Carry over from an earlier lecture](wireframes/png/i-carry-over.png)
+
+- (1) Pick one of your earlier lectures and what to bring over.
+- (2) Student names are removed. Carried questions show as "from an earlier class". Only approved items come across.
+
+Covers user stories Instructor 8.
+
+### Student screens
+
+#### Student 1. Shared lecture page (signed out) (changed screen)
+
+![Shared lecture page (signed out)](wireframes/png/s-lecture.png)
+
+- (1) Glossary button in the nav, next to the language switcher.
+- (2) Terms with an approved definition get a dotted underline on the slide. Click one to see the definition.
+- (3) Questions area under the slide. Count of approved answers, and Ask about this slide (needs sign in).
+- Slides, play, language, share and full screen are as today.
+
+Covers user stories Student 1, Student 6 and Student 9.
+
+#### Student 2. Definition popover on a term (new screen)
+
+![Definition popover on a term](wireframes/png/s-term.png)
+
+- (1) Click the underlined term, a small box opens next to it. Close (x, Esc, or click the slide) and you are back where you were.
+- (2) Definition, example, related terms (each opens its own box), and the reviewed mark.
+- (3) Open full glossary goes to the Glossary panel.
+
+Covers user stories Student 1, Student 2, Student 4 and Student 5.
+
+#### Student 3. Glossary panel (new screen)
+
+![Glossary panel](wireframes/png/s-glossary.png)
+
+- (1) Panel beside the slides. Search filters as you type.
+- (2) Each term says which slide it is on. Go to slide jumps there and keeps the panel open.
+- (3) Footer says everything here was approved by the instructor.
+
+Covers user stories Student 1, Student 3, Student 4 and Student 5.
+
+#### Student 4. Questions on this slide (new screen)
+
+![Questions on this slide](wireframes/png/s-questions.png)
+
+- (1) Only approved questions and answers show, each with the reviewed mark.
+- (2) Ask a follow-up on any answer when it is not enough.
+- (3) Signed in: your own questions show at the top with their status (waiting / answered). Signed out you just see the approved list and a sign in prompt on Ask.
+
+Covers user stories Student 6, Student 9 and Student 10.
+
+#### Student 5. Ask about this slide (signed in) (new screen)
+
+![Ask about this slide (signed in)](wireframes/png/s-ask.png)
+
+- (1) The slide is attached automatically.
+- (2) Question + optional "what you understand so far". Post as your name or anonymous, per question.
+- (3) If the send fails the text stays and you get Try again. A follow-up uses this same form with the earlier answer attached.
+
+Covers user stories Student 7, Student 8, Student 9 and Student 10.
+
+#### Student 6. Sign in to ask (existing dialog, new title) (changed screen)
+
+![Sign in to ask (existing dialog, new title)](wireframes/png/s-signin.png)
+
+- (1) Reuses the app's existing "Log in to..." dialog. Same Google / email form.
+- (2) One line says why. After sign in you land on the Ask form for the same slide. Reading never needs an account.
+
+Covers user stories Student 7 and Student 9.
+
+### Coverage check
+
+Every user story in the User Requirements section maps to at least one screen above.
+
+| User story | Screens |
+|---|---|
+| Student 1: open a course-specific definition directly from an unfamiliar term on a slide | Student 1, Student 2, Student 3 |
+| Student 2: definitions include simple explanations and examples | Instructor 3, Student 2 |
+| Student 3: search the glossary for a term | Student 3 |
+| Student 4: an explanation links to prerequisite terms or earlier material | Instructor 3, Student 2, Student 3 |
+| Student 5: return to my original slide after consulting an explanation | Student 2, Student 3 |
+| Student 6: find questions and answers associated with a slide | Student 1, Student 4 |
+| Student 7: my question includes a reference to the slide | Instructor 5, Student 5, Student 6 |
+| Student 8: describe what I currently understand when asking | Instructor 5, Student 5 |
+| Student 9: identify answers reviewed by the professor | Student 1, Student 4, Student 5, Student 6 |
+| Student 10: request further clarification when an explanation is insufficient | Student 4, Student 5 |
+| Instructor 1: the app suggests definitions for hard terms and acronyms | Instructor 2 |
+| Instructor 2: approve, edit, hold, or discard each suggested definition | Instructor 2, Instructor 3, Instructor 6 |
+| Instructor 3: each suggested definition shows the slide or transcript text it came from | Instructor 2, Instructor 3 |
+| Instructor 4: change or remove a definition after students can see it | Instructor 2, Instructor 3 |
+| Instructor 5: see all new student questions in one list grouped by slide | Instructor 1, Instructor 4 |
+| Instructor 6: a student question stays hidden until I approve an answer | Instructor 4, Instructor 5 |
+| Instructor 7: the app drafts an answer and shows the slide text it used | Instructor 4, Instructor 5, Instructor 6 |
+| Instructor 8: approved Q&A from earlier semesters carry over with no student names | Instructor 2, Instructor 4, Instructor 7 |
+| Instructor 9: see how many questions each slide received | Instructor 1, Instructor 4 |
+| Instructor 10: a clear message when the app cannot draft an answer | Instructor 6 |
 
 ## Clickable Prototype
 
-See instructions. Delete this line and place a publicly-accessible link to your clickable prototype here.
+Figma prototype, no login needed to view. https://www.figma.com/proto/N6brbXDTkaKgmOEjn25Oaz
+
+Two flows are set up in the file. Instructor starts on the lecture page signed in as the owner. Student starts on the shared lecture page signed out. Every button and link in every frame goes to the next screen, including the error states. The design file itself is at https://www.figma.com/design/N6brbXDTkaKgmOEjn25Oaz.
+
+Backup copy of the same click-through as a plain HTML page, in case Figma is down during the demo. Open [`wireframes/wireframes.html`](wireframes/wireframes.html) and switch to Click-through at the top.
 
 ## Stakeholder Demo
 
